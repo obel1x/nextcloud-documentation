@@ -61,16 +61,16 @@ Then install Nextcloud at the root of your site from Git::
 
 If you prefer to install Nextcloud in a sub-folder, replace `/var/www` with `/var/www/<folder>`.
 
-Create the data folder::
+Create the data folder. The folder should be located outside your webroot::
 
-  cd /var/www
-  mkdir data
+  cd /var/www/..
+  mkdir nextcloud_data
 
 Adjust permissions::
 
   cd /var/www
-  sudo chown -R www-data:www-data config data apps
-  sudo chmod o-rw /var/www
+  sudo chown -R www-data:www-data config ../nextcloud_data apps
+  sudo chmod o-rwx /var/www /var/nextcloud_data
 
 Finally, restart the Web server (this might vary depending on your distribution)::
 
